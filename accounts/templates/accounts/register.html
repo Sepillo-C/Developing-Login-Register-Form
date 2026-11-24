@@ -1,0 +1,96 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Create Account | Valorant{% endblock %}
+
+{% block welcome_message %}
+Create an account to get started<br>
+and make yourself at home.
+{% endblock %}
+
+{% block content %}
+
+<h2>Create Your Account</h2>
+<p class="form-subtitle">Sign up to get started.</p>
+
+<form method="post" class="auth-form" id="registerForm">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+
+        <div class="password-wrapper">
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                minlength="8"
+                autocomplete="new-password"
+                required
+            >
+
+            <button type="button" class="toggle-password" data-target="password">
+                Show
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+
+        <div class="password-wrapper">
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="Re-enter your password"
+                autocomplete="new-password"
+                required
+            >
+
+            <button type="button" class="toggle-password" data-target="confirm_password">
+                Show
+            </button>
+        </div>
+    </div>
+
+    <div class="terms-group">
+        <label class="checkbox-label">
+            <input type="checkbox" id="terms" required>
+            <span>I agree to the Terms and Conditions.</span>
+        </label>
+    </div>
+
+    <button type="submit" class="submit-btn">Create Account</button>
+</form>
+
+<p class="form-footer">
+    Already have an account?
+    <a href="{% url 'login' %}" class="text-link">Log In.</a>
+</p>
+
+{% endblock %}

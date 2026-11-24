@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Account | Website{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+
+            <div class="welcome-panel">
+                <div class="welcome-content">
+                    <span class="brand-label">VALORANT</span>
+
+                    <h1>Welcome to<br>our website.</h1>
+
+                    <p>
+                        {% block welcome_message %}
+                        Access your account and pick up<br>
+                        right where you left off.
+                        {% endblock %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <div class="form-content">
+
+                    {% block content %}
+                    {% endblock %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/auth.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>
